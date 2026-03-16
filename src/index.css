@@ -1,24 +1,62 @@
 :root {
     --color-1: #fdbe5e;
     --color-2: #E6A33E;
-    --color-3: #5EFDBE;
-    --color-4: #45E4A3;
-    --color-5: #BE5EFD;
-    --color-6: #A345E4;
+    --color-3: #77acfd;
+    --color-4: #90bbfd;
+    --color-5: #8f1cd4;
+    --color-6: #a52cf1;
     --color-7: #3787fa;
     --color-8: #5daafd;
-    --color-fondo:#cdcdcd;
-    --color-complementario-I: #c53d6f;
-    --color-complementario-II: #d44e86;
+    --color-fondo-l:#fff9ed;
+    --color-fondo-d: #282828;
+    --color-complementario-I: #c01521;
+    --color-complementario-II: #e41e2c;
     --color-blanco: #fff;
-    --color-negro: #282828;
+    --color-negro: #000000;
+    --color-negro-aux: #434343;
     --color-dark: #717171;
 }
 
-body{
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    line-height: 1.5;
+}
+
+#root{
+    display: grid;
+    min-height: 100dvh;
+    grid-template-rows: auto 1fr auto;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+    border: none;
+    outline: none;
 }
 
 .bgColorFondo {
@@ -33,17 +71,17 @@ body{
     background-color: var(--color-complementario-I) !important;
 }
 
-.bgDark{
+.bgDark {
     background-color: #000 !important;
 }
 
 .boton-principal {
-  background-color: #FDBE5E;
-  transition: background-color 0.3s ease;
+    background-color: #FDBE5E;
+    transition: background-color 0.3s ease;
 }
 
 .boton-principal:hover {
-  background-color: #E6A33E;
+    background-color: #E6A33E;
 }
 
 .btnPersonalized1 {
@@ -123,12 +161,12 @@ body{
     box-shadow: 0 0 0 0.2rem var(--color-2) !important;
 }
 
-.modoLight{
+.modoLight {
     background-color: var(--color-fondo);
     color: var(--color-negro);
 }
 
-.modoDark{
+.modoDark {
     background-color: var(--color-negro);
     color: var(--color-blanco);
 }

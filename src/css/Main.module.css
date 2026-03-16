@@ -1,0 +1,35 @@
+:root {
+    --color-1: #fdbe5e;
+    --color-2: #E6A33E;
+    --color-3: #77acfd;
+    --color-4: #90bbfd;
+    --color-5: #8f1cd4;
+    --color-6: #a52cf1;
+    --color-7: #3787fa;
+    --color-8: #5daafd;
+    --color-fondo-l:#fff9ed;
+    --color-fondo-d: #282828;
+    --color-complementario-I: #c01521;
+    --color-complementario-II: #e41e2c;
+    --color-blanco: #fff;
+    --color-negro: #000000;
+    --color-negro-aux: #434343;
+    --color-dark: #717171;
+}
+
+.mainPrincipal{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    gap: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.ligth{
+    background-color: var(--color-fondo-l);
+}
+
+.dark{
+    background-color: var(--color-fondo-d);
+}

@@ -1,21 +1,24 @@
-import { useAdoptMeState } from "../Context";
+import style from '../css/Main.module.css';
+import NavBar from "../components/NavBar";
+import { useAdoptMeState } from '../Context';
+import Footer from '../components/Footer';
+import { Route, Routes } from 'react-router-dom';
+import { routes } from '../assets/utils/routes';
+import Home from '../pages/Home';
 
 const RoutesViews = () => {
-    const { state } = useAdoptMeState();
-    const tema = state.modeDark ? "modoDark" : "bgColorFondo";
+    const { state, dispatch } = useAdoptMeState();
+    const modeMain = state.modeDark ? "dark" : "ligth";
+
     return (
         <>
-            <Navbar/>
-            <main className={`flex-grow-1 container-main ${tema} pb-5`}>
+            <NavBar/>
+            <main className={style.mainPrincipal + " " + style[modeMain]}>
                 <Routes>
-                    <Route path={routes.home} element={<HomePage/>}/>
-                    <Route path={routes.detalle+"/:id"} element={<DetallePage/>}/>
-                    <Route path={routes.contacto} element={<ContactoPage/>}/>
-                    <Route path={routes.favoritos} element={<FavoritosPage/>}/>
-                    <Route path={routes.notFound} element={<Error404Page/>}/>
+                    <Route path={routes.home} element={<Home/>}/>
                 </Routes>
             </main>
-            <FooterClinica/>
+            <Footer/>
         </>
     );
 }

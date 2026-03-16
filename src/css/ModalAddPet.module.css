@@ -1,0 +1,76 @@
+:root {
+    --color-1: #fdbe5e;
+    --color-2: #E6A33E;
+    --color-3: #77acfd;
+    --color-4: #90bbfd;
+    --color-5: #8f1cd4;
+    --color-6: #a52cf1;
+    --color-7: #3787fa;
+    --color-8: #5daafd;
+    --color-fondo-l:#fff9ed;
+    --color-fondo-d: #282828;
+    --color-complementario-I: #c01521;
+    --color-complementario-II: #e41e2c;
+    --color-blanco: #fff;
+    --color-negro: #000000;
+    --color-negro-aux: #434343;
+    --color-dark: #717171;
+}
+
+.bgColorF{
+    background-color: var(--color-1) !important;
+    color: var(--color-negro) !important;
+}
+
+.bgColorBodyLigth{
+    background-color: var(--color-fondo-l) !important;
+}
+
+.bgColorBodyDark{
+    background-color: var(--color-fondo-d) !important;
+    color: var(--color-blanco) !important;
+}
+
+.btnPersonalized1 {
+    background-color: var(--color-7) !important;
+    color: var(--color-blanco) !important;
+    border: none !important;
+}
+
+.btnPersonalized1:hover {
+    background-color: var(--color-7) !important;
+    color: var(--color-blanco) !important;
+}
+
+.btnPersonalized2 {
+    background-color: var(--color-complementario-I) !important;
+    color: var(--color-blanco) !important;
+    border: none !important;
+}
+
+.btnPersonalized2:hover {
+    background-color: var(--color-complementario-II) !important;
+    color: var(--color-blanco) !important;
+}
+
+.inputLigth {
+    border: 1.8px solid var(--color-2) !important;
+    background-color: var(--color-blanco) !important;
+    color: var(--color-negro) !important;
+}
+
+.inputLigth:focus {
+    border: 2px solid var(--color-1) !important;
+    box-shadow: 0 0 0 0.2rem var(--color-1) !important;
+}
+
+.inputDark {
+    border: 1.8px solid var(--color-2) !important;
+    background-color: var(--color-negro) !important;
+    color: var(--color-blanco) !important;
+}
+
+.inputDark:focus {
+    border: 2px solid var(--color-1) !important;
+    box-shadow: 0 0 0 0.2rem var(--color-1) !important;
+}

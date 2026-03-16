@@ -1,0 +1,224 @@
+:root {
+    --color-1: #fdbe5e;
+    --color-2: #E6A33E;
+    --color-3: #77acfd;
+    --color-4: #90bbfd;
+    --color-5: #8f1cd4;
+    --color-6: #a52cf1;
+    --color-7: #3787fa;
+    --color-8: #5daafd;
+    --color-fondo-l:#fff9ed;
+    --color-fondo-d: #282828;
+    --color-complementario-I: #c01521;
+    --color-complementario-II: #e41e2c;
+    --color-blanco: #fff;
+    --color-negro: #000000;
+    --color-negro-aux: #434343;
+    --color-dark: #717171;
+}
+
+.cardsContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+}
+
+.tittle{
+    text-transform: uppercase;
+    font-size: 32px;
+    transition: color 0.3s ease;
+}
+
+.dark{
+    color: var(--color-blanco);
+}
+
+.ligth{
+    color: var(--color-negro);
+}
+
+.cards{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 10px;
+    flex-wrap: wrap;
+}
+
+.card{
+    width: 375px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+    cursor: default;
+    transition: all 400ms ease;
+}
+
+.card:hover{
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+    transform: translateY(-1%);
+}
+
+.cardLigth{
+    background-color: var(--color-blanco);
+    color: var(--color-negro);
+}
+
+.cardDark{
+    background-color: var(--color-negro-aux);
+    color: var(--color-blanco);
+}
+
+.cFigure {
+    position: relative;
+}
+
+.cDelete {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background-color: var(--color-complementario-I);
+    color: var(--color-blanco);
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.cDelete:hover{
+    background-color: var(--color-complementario-II);
+}
+
+.cardContent{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+
+.cardDescription{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.cardInfo2cols{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pCard{
+    margin: 0;
+}
+
+.itemBold{
+    font-weight: bold;
+}
+
+.cardDescriptionText{
+    text-align: justify;
+    font-size: 14px;
+    margin: 0;
+}
+
+.cardFooter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+.btnAdotp{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 5px 7.5px;
+    background-color: var(--color-5);
+    color: var(--color-blanco);
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btnAdotp:hover{
+    background-color: var(--color-6);
+}
+
+.btnEdit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 5px 7.5px;
+    background-color: var(--color-7);
+    color: var(--color-blanco);
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btnEdit:hover{
+    background-color: var(--color-8);
+}
+
+@media (max-width:1190px){
+    .card{
+        width: 300px;
+    }
+}
+
+@media (max-width:955px){
+    .card{
+        width: 275px;
+    }
+
+    .cardContent{
+        padding: 10px 5px;
+    }
+
+    .cardInfo2cols{
+        font-size: 14px;
+    }
+
+    .cardDescriptionText{
+        text-align: justify;
+        font-size: 12px;
+    }
+
+    .btnAdotp{
+        font-size: 14px;
+    }
+
+    .btnEdit{
+        font-size: 14px;
+    }
+}
+
+@media (max-width:475px){
+    .tittle{
+        font-size: 24px;
+    }
+}

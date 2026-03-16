@@ -1,0 +1,167 @@
+:root {
+    --color-1: #fdbe5e;
+    --color-2: #E6A33E;
+    --color-3: #77acfd;
+    --color-4: #90bbfd;
+    --color-5: #8f1cd4;
+    --color-6: #a52cf1;
+    --color-7: #3787fa;
+    --color-8: #5daafd;
+    --color-fondo-l:#fff9ed;
+    --color-fondo-d: #282828;
+    --color-complementario-I: #c01521;
+    --color-complementario-II: #e41e2c;
+    --color-blanco: #fff;
+    --color-negro: #000000;
+    --color-negro-aux: #434343;
+    --color-dark: #717171;
+}
+
+.header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    gap: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.headerLight{
+    background-color: var(--color-1);
+}
+
+.headerDark{
+    background-color: var(--color-negro);
+}
+
+.sLogo{
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    gap: 5px;
+    text-decoration: none;
+}
+
+.clogo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: 2px solid var(--color-negro);
+    border-radius: 50%;
+    background-color: var(--color-blanco);
+    transition: box-shadow 0.3s ease;
+}
+
+.clogo:hover {
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.logo {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+}
+
+.txtLogo{
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
+    margin: 0;
+}
+
+.txtLogoLigth{
+    color: var(--color-negro);
+}
+
+.txtLogoDark{
+    color: var(--color-blanco);
+}
+
+.sTittle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: width 0.3s ease, opacity 0.3s ease;
+}
+
+.txtTittle{
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
+    margin: 0;
+}
+
+.tittleLigth{
+    color: var(--color-negro);
+}
+
+.tittleDark{
+    color: var(--color-blanco);
+}
+
+.sMode{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnModeLight{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 5px 7.5px;
+    background-color: var(--color-3);
+    color: var(--color-negro);
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btnModeLight:hover{
+    background-color: var(--color-4);
+}
+
+.btnModeDark{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 5px 7.5px;
+    background-color: var(--color-5);
+    color: var(--color-blanco);
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btnModeDark:hover{
+    background-color: var(--color-6);
+}
+
+@media (max-width:550px){
+    .header{
+        padding: 5px;
+    }
+
+    .sTittle{
+        width: 0;
+        opacity: 0;
+        overflow: hidden;
+    }
+}

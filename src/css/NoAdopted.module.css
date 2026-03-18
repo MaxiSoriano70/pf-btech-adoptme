@@ -1,0 +1,72 @@
+:root {
+    --color-1: #fdbe5e;
+    --color-2: #E6A33E;
+    --color-3: #77acfd;
+    --color-4: #90bbfd;
+    --color-5: #8f1cd4;
+    --color-6: #a52cf1;
+    --color-7: #3787fa;
+    --color-8: #5daafd;
+    --color-fondo-l:#fff9ed;
+    --color-fondo-d: #282828;
+    --color-complementario-I: #c01521;
+    --color-complementario-II: #e41e2c;
+    --color-blanco: #fff;
+    --color-negro: #000000;
+    --color-negro-aux: #434343;
+    --color-dark: #717171;
+}
+
+.sNoAdopted{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.aNoAdopted{
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+}
+
+.aNoAdoptedLigth{
+    background-color: var(--color-blanco);
+    color: var(--color-negro);
+}
+
+.aNoAdoptedDark{
+    background-color: var(--color-negro-aux);
+    color: var(--color-blanco);
+}
+
+.imgNoAdopted{
+    width: 105px;
+    height: 105px;
+}
+
+.pNoAdopted{
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+@media (max-width:550px){
+    .aNoAdopted{
+        width: 340px;
+        flex-direction: column;
+    }
+
+    .pNoAdopted{
+        font-size: 18px;
+    }
+}

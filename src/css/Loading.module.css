@@ -1,0 +1,76 @@
+:root {
+    --color-1: #fdbe5e;
+    --color-2: #E6A33E;
+    --color-3: #77acfd;
+    --color-4: #90bbfd;
+    --color-5: #8f1cd4;
+    --color-6: #a52cf1;
+    --color-7: #3787fa;
+    --color-8: #5daafd;
+    --color-fondo-l:#fff9ed;
+    --color-fondo-d: #282828;
+    --color-complementario-I: #c01521;
+    --color-complementario-II: #e41e2c;
+    --color-blanco: #fff;
+    --color-negro: #000000;
+    --color-negro-aux: #434343;
+    --color-dark: #717171;
+}
+
+.cLoading {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 10px;
+    gap: 20px;
+    transition: all 0.3s ease;
+}
+
+.cLigth{
+    color: var(--color-negro);
+}
+
+.cDark{
+    color: var(--color-blanco);
+}
+
+.loader {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.lDark{
+    border: 8px solid var(--color-fondo-l);
+    border-top: 6px solid var(--color-5);
+    transition: all 0.3s ease;
+}
+
+.lLigth{
+    border: 8px solid var(--color-fondo-d);
+    border-top: 6px solid var(--color-6);
+    transition: all 0.3s ease;
+}
+
+.pLoading {
+    margin: 0;
+    font-size: 32px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.pLigth{
+    color: var(--color-negro);
+}
+
+.pDark{
+    color: var(--color-blanco);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

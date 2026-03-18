@@ -2,10 +2,14 @@ import style from '../css/ModalAddPet.module.css';
 import { useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 import { useAdoptMeState } from '../Context';
+import { uploadImage } from '../assets/utils/Cloudinary';
+import { addPet } from '../firebase/service';
+import Swal from 'sweetalert2';
+import { auth } from '../firebase/config';
 
 const ModalAddPet = ({ show, handleClose }) => {
 
-    const { state } = useAdoptMeState();
+    const { state, dispatch } = useAdoptMeState();
     const isDark = state.modeDark;
 
     const themeBody = isDark ? style.bgColorBodyDark : style.bgColorBodyLigth;
@@ -21,7 +25,8 @@ const ModalAddPet = ({ show, handleClose }) => {
         esterilizado: '',
         domicilio: '',
         telefono: '',
-        descripcion: ''
+        descripcion: '',
+        adoptado: false
     });
 
     const [errors, setErrors] = useState({});
@@ -29,45 +34,136 @@ const ModalAddPet = ({ show, handleClose }) => {
     const handleChange = (e) => {
         const { name, value, type, files } = e.target;
 
+        if (type === 'file') {
+            const file = files[0];
+
+            if (!file) return;
+
+            if (!file.type.startsWith('image/')) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Archivo inválido',
+                    text: 'Solo se permiten imágenes'
+                });
+                return;
+            }
+
+            setForm({
+                ...form,
+                [name]: file
+            });
+
+            return;
+        }
+
         setForm({
             ...form,
-            [name]: type === 'file' ? files[0] : value
+            [name]: value
         });
     };
 
     const validate = () => {
         let err = {};
 
-        if (form.nombre.trim().length < 3) err.nombre = "Mínimo 3 caracteres";
-        if (form.raza.trim().length < 3) err.raza = "Mínimo 3 caracteres";
-        if (form.domicilio.trim().length < 3) err.domicilio = "Mínimo 3 caracteres";
+        if (form.nombre.trim().length < 3) err.nombre = "Mínimo 3 caracteres*";
+        if (form.raza.trim().length < 3) err.raza = "Mínimo 3 caracteres*";
+        if (form.domicilio.trim().length < 3) err.domicilio = "Mínimo 3 caracteres*";
 
         if (!form.fechaNacimiento) {
-            err.fechaNacimiento = "Requerido";
+            err.fechaNacimiento = "Campo obligatorio*";
         } else {
             const hoy = new Date();
             const fecha = new Date(form.fechaNacimiento);
-            if (fecha >= hoy) err.fechaNacimiento = "Debe ser menor a hoy";
+            if (fecha >= hoy) err.fechaNacimiento = "Debe ser menor a hoy*";
         }
 
-        if (!form.especie) err.especie = "Seleccionar especie";
-        if (!form.sexo) err.sexo = "Seleccionar sexo";
-        if (!form.esterilizado) err.esterilizado = "Seleccionar opción";
+        if (!form.especie) err.especie = "Seleccionar especie*";
+        if (!form.sexo) err.sexo = "Seleccionar sexo*";
+        if (!form.esterilizado) err.esterilizado = "Seleccionar opción*";
 
-        if (!form.telefono) err.telefono = "Requerido";
+        if (!form.telefono) err.telefono = "Campo obligatorio*";
 
-        if (form.descripcion.length < 5) err.descripcion = "Muy corta";
+        if (form.descripcion.length < 5) err.descripcion = "Mínimo 6 caracteres*";
 
         setErrors(err);
         return Object.keys(err).length === 0;
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (validate()) {
-            console.log("DATA:", form);
+        if (!validate()) return;
+
+        try {
+            // 🔄 LOADING
+            Swal.fire({
+                title: 'Cargando...',
+                text: 'Guardando mascota 🐾',
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+
+            let imageUrl = "";
+
+            if (form.foto) {
+                imageUrl = await uploadImage(form.foto);
+            }
+
+            const newPet = {
+                ...form,
+                foto: imageUrl,
+                fechaCreacion: Date.now(),
+                uid: auth.currentUser?.uid || null
+            };
+
+            const petSaved = await addPet(newPet);
+
+            if (!petSaved) {
+                throw new Error("No se guardó la mascota");
+            }
+
+            dispatch({
+                type: "ADD_PET",
+                payload: petSaved
+            });
+
+            // ✅ ÉXITO
+            Swal.fire({
+                icon: 'success',
+                title: '🐾 Mascota agregada',
+                text: 'Se guardó correctamente'
+            });
+
+            console.log("Mascota guardada:", petSaved);
+
+            setForm({
+                foto: null,
+                nombre: '',
+                fechaNacimiento: '',
+                especie: '',
+                sexo: '',
+                raza: '',
+                esterilizado: '',
+                domicilio: '',
+                telefono: '',
+                descripcion: '',
+                adoptado: false
+            });
+
+            setErrors({});
             handleClose();
+
+        } catch (error) {
+            console.error(error);
+
+            // ❌ ERROR
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'No se pudo guardar la mascota'
+            });
         }
     };
 
@@ -89,7 +185,7 @@ const ModalAddPet = ({ show, handleClose }) => {
                     {/* FOTO */}
                     <Form.Group className="mb-3">
                         <Form.Label className="fw-bold">Subir foto</Form.Label>
-                        <Form.Control type="file" name="foto" onChange={handleChange} className={themeInput} />
+                        <Form.Control type="file" name="foto" onChange={handleChange} className={themeInput} accept="image/png, image/jpeg"/>
                     </Form.Group>
 
                     {/* NOMBRE */}

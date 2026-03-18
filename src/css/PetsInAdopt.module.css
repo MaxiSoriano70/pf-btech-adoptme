@@ -124,6 +124,7 @@
 
 .pCard{
     margin: 0;
+    text-transform: capitalize;
 }
 
 .itemBold{

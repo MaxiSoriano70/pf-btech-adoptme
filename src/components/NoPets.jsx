@@ -16,4 +16,4 @@ const NoPets = () => {
     )
 }
 
-export default NoPets
+export default NoPets;

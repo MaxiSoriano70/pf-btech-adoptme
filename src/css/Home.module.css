@@ -1,0 +1,40 @@
+:root {
+    --color-1: #fdbe5e;
+    --color-2: #E6A33E;
+    --color-3: #77acfd;
+    --color-4: #90bbfd;
+    --color-5: #8f1cd4;
+    --color-6: #a52cf1;
+    --color-7: #3787fa;
+    --color-8: #5daafd;
+    --color-fondo-l:#fff9ed;
+    --color-fondo-d: #282828;
+    --color-complementario-I: #c01521;
+    --color-complementario-II: #e41e2c;
+    --color-blanco: #fff;
+    --color-negro: #000000;
+    --color-negro-aux: #434343;
+    --color-dark: #717171;
+}
+
+.tittle{
+    text-transform: uppercase;
+    font-size: 32px;
+    transition: color 0.3s ease;
+    margin: 20px 0px;
+}
+
+.dark{
+    color: var(--color-blanco);
+}
+
+.ligth{
+    color: var(--color-negro);
+}
+
+
+@media (max-width:475px){
+    .tittle{
+        font-size: 24px;
+    }
+}

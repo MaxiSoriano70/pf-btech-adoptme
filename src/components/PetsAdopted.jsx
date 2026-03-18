@@ -15,8 +15,8 @@ const Card = () => {
     )
 }
 
-const PetsAdopted = () => {
-    const { state, dispatch } = useAdoptMeState();
+const PetsAdopted = ({ pets }) => {
+    const { state } = useAdoptMeState();
     const tittleTheme = state.modeDark ? style.dark : style.ligth;
 
     return (

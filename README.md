@@ -152,6 +152,8 @@ npm run deploy
 
 ## 📬 Contacto
 
-Desarrollado por **Maximiliano Soriano** 🧑‍💻 
+Desarrollado por **Maximiliano Soriano** 🧑‍💻
+
 📧 Email: [maxi.soriano.70.23@gmail.com](mailto:maxi.soriano.70.23@gmail.com)
+
 🔗 LinkedIn: [linkedin.com/in/maximilianosoriano](https://www.linkedin.com/in/maximiliano-soriano/)

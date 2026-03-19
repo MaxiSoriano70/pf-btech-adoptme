@@ -1,7 +1,5 @@
-
-import { collection, addDoc, getDocs, updateDoc,deleteDoc, doc } from "firebase/firestore";
+import { collection, addDoc, getDocs, updateDoc, deleteDoc, doc } from "firebase/firestore";
 import { db } from "./config";
-
 
 export const addPet = async (pet) => {
     try {
@@ -9,42 +7,41 @@ export const addPet = async (pet) => {
         return { id: docRef.id, ...pet };
     } catch (error) {
         console.error("Error al agregar mascota:", error);
+        throw error;
     }
 };
 
 export const getPets = async () => {
     try {
         const snapshot = await getDocs(collection(db, "pets"));
-
         return snapshot.docs.map(doc => ({
             id: doc.id,
             ...doc.data()
         }));
     } catch (error) {
         console.error("Error al obtener mascotas:", error);
+        throw error;
     }
 };
 
 export const updatePet = async (id, updatedData) => {
     try {
         const petRef = doc(db, "pets", id);
-
         await updateDoc(petRef, updatedData);
-
         return { id, ...updatedData };
     } catch (error) {
         console.error("Error al actualizar mascota:", error);
+        throw error;
     }
 };
 
 export const deletePet = async (id) => {
     try {
         const petRef = doc(db, "pets", id);
-
         await deleteDoc(petRef);
-
         return id;
     } catch (error) {
         console.error("Error al eliminar mascota:", error);
+        throw error;
     }
 };

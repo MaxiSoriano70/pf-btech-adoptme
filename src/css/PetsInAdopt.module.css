@@ -26,12 +26,6 @@
     gap: 10px;
 }
 
-.tittle{
-    text-transform: uppercase;
-    font-size: 32px;
-    transition: color 0.3s ease;
-}
-
 .dark{
     color: var(--color-blanco);
 }
@@ -215,11 +209,5 @@
 
     .btnEdit{
         font-size: 14px;
-    }
-}
-
-@media (max-width:475px){
-    .tittle{
-        font-size: 24px;
     }
 }

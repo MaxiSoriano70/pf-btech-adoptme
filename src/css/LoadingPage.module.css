@@ -27,15 +27,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(--color-1);
     z-index: 9999;
 }
 
 .cLigth{
+    background-color: var(--color-1);
     color: var(--color-negro);
 }
 
 .cDark{
+    background-color: var(--color-fondo-d);
     color: var(--color-blanco);
 }
 

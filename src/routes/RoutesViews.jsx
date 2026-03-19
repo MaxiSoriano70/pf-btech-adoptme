@@ -7,7 +7,7 @@ import { routes } from '../assets/utils/routes';
 import Home from '../pages/Home';
 
 const RoutesViews = () => {
-    const { state, dispatch } = useAdoptMeState();
+    const { state } = useAdoptMeState();
     const modeMain = state.modeDark ? "dark" : "ligth";
 
     return (

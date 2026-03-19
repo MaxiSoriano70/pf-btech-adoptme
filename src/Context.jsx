@@ -5,7 +5,7 @@ const AdoptMeState = createContext();
 
 const stateInitial = {
     pets : [],
-    modeDark: false,
+    modeDark: JSON.parse(localStorage.getItem("modeDark")) ?? false,
 }
 
 const Context = ({children}) => {

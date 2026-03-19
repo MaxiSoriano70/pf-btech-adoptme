@@ -3,9 +3,11 @@ export const reducer = (state, action) => {
 
         // 🌙 MODO OSCURO
         case "CHANGE_MODE":
+            const newMode = !state.modeDark;
+            localStorage.setItem("modeDark", JSON.stringify(newMode)); // ← guarda al cambiar
             return {
                 ...state,
-                modeDark: !state.modeDark
+                modeDark: newMode
             };
 
         // 📥 SET (cargar mascotas)

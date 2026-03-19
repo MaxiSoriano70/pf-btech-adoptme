@@ -4,9 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faPenToSquare, faHeart, faLocationDot, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import Swal from 'sweetalert2';
 import { deletePet, updatePet } from '../firebase/service';
+import { useState } from 'react';
+import ModalEditPet from './ModalEditPet';
 
 const Card = ({ cardTheme, pet }) => {
     const { dispatch } = useAdoptMeState();
+    const [ showEdit, setShowEdit ] = useState(false);
 
     const calcularEdad = (fechaNacimiento) => {
         if (!fechaNacimiento) return "Sin datos";
@@ -118,8 +121,15 @@ const Card = ({ cardTheme, pet }) => {
             </div>
             <div className={style.cardFooter}>
                 <button className={style.btnAdotp} onClick={handleAdopt}>Adoptado <FontAwesomeIcon icon={faHeart} /></button>
-                <button className={style.btnEdit}>Editar <FontAwesomeIcon icon={faPenToSquare} /></button>
+                <button className={style.btnEdit} onClick={() => setShowEdit(true)}>
+                    Editar <FontAwesomeIcon icon={faPenToSquare} />
+                </button>
             </div>
+            <ModalEditPet
+                show={showEdit}
+                handleClose={() => setShowEdit(false)}
+                pet={pet}
+            />
         </div>
     )
 }

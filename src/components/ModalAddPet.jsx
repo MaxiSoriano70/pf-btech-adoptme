@@ -83,7 +83,7 @@ const ModalAddPet = ({ show, handleClose }) => {
 
         if (!form.telefono) err.telefono = "Campo obligatorio*";
 
-        if (form.descripcion.length < 5) err.descripcion = "Mínimo 6 caracteres*";
+        if (form.descripcion.length < 5) err.descripcion = "Mínimo 5 caracteres*";
 
         setErrors(err);
         return Object.keys(err).length === 0;
